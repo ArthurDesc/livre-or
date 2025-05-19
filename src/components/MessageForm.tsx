@@ -39,10 +39,10 @@ export default function MessageForm({ onMessageAdded }: { onMessageAdded: () => 
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-          Name
+        <label htmlFor="name" className="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1 tracking-wide">
+          Nom
         </label>
         <input
           type="text"
@@ -51,12 +51,13 @@ export default function MessageForm({ onMessageAdded }: { onMessageAdded: () => 
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           required
           maxLength={60}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="mt-1 block w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white/70 dark:bg-gray-800/70 shadow-md focus:border-blue-400 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-600 focus:outline-none transition-all duration-200 px-4 py-3 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+          placeholder="Votre nom"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="email" className="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1 tracking-wide">
           Email
         </label>
         <input
@@ -66,12 +67,13 @@ export default function MessageForm({ onMessageAdded }: { onMessageAdded: () => 
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           required
           maxLength={60}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="mt-1 block w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white/70 dark:bg-gray-800/70 shadow-md focus:border-blue-400 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-600 focus:outline-none transition-all duration-200 px-4 py-3 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+          placeholder="Votre email"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="message" className="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1 tracking-wide">
           Message
         </label>
         <textarea
@@ -81,20 +83,21 @@ export default function MessageForm({ onMessageAdded }: { onMessageAdded: () => 
           required
           maxLength={1000}
           rows={4}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="mt-1 block w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white/70 dark:bg-gray-800/70 shadow-md focus:border-blue-400 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-600 focus:outline-none transition-all duration-200 px-4 py-3 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 resize-none"
+          placeholder="Votre message..."
         />
       </div>
 
       {error && (
-        <div className="text-red-600 text-sm">{error}</div>
+        <div className="text-red-600 text-sm font-medium">{error}</div>
       )}
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50"
+        className="w-full inline-flex justify-center rounded-xl border border-transparent bg-gradient-to-r from-blue-500 to-purple-500 py-3 px-6 text-base font-semibold text-white shadow-lg hover:scale-105 hover:from-blue-600 hover:to-purple-600 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 disabled:opacity-60"
       >
-        {isSubmitting ? 'Submitting...' : 'Submit Message'}
+        {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
       </button>
     </form>
   )

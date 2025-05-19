@@ -50,32 +50,37 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-transparent py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h1 ref={titleRef} className="text-4xl font-bold text-gray-900 mb-4">Livre d&apos;Or</h1>
-          <p className="text-lg text-gray-600">
+          <h1 ref={titleRef} className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-pink-400 mb-4 drop-shadow-lg transition-all duration-500">
+            NetDart
+          </h1>
+          <p className="text-lg text-gray-600 dark:text-gray-300">
             Laissez un message pour partager vos pensées et vos expériences.
           </p>
-          <Link href="/long-text">
-            <button className="mt-6 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition">
-              Voir du contenu long
-            </button>
-          </Link>
+          <button
+            onClick={() => setShowLongText((prev) => !prev)}
+            className="mt-6 px-6 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold shadow-lg hover:scale-105 hover:from-blue-600 hover:to-purple-600 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            {showLongText ? 'Retour au formulaire' : 'Voir un contenu long'}
+          </button>
         </div>
 
         {showLongText ? (
           <LongText />
         ) : (
-          <div className="bg-white shadow rounded-lg p-6 mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Ajouter un message</h2>
+          <div className="bg-white/80 dark:bg-gray-900/80 shadow-2xl rounded-3xl p-8 mb-10 transition-all duration-300 hover:shadow-3xl">
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Ajouter un message</h2>
             <MessageForm onMessageAdded={handleMessageAdded} />
           </div>
         )}
 
         <div>
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6">Messages récents</h2>
-          <MessageList refreshTrigger={refreshTrigger} />
+          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Messages récents</h2>
+          <div className="bg-white/80 dark:bg-gray-900/80 shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl">
+            <MessageList refreshTrigger={refreshTrigger} />
+          </div>
         </div>
       </div>
     </main>

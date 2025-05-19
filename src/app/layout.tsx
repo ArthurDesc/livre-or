@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Livre d'Or",
-  description: "Partagez vos pensées et vos expériences dans notre livre d'or.",
+  title: "NetDart",
+  description: "Partagez vos pensées et vos expériences sur notre forum.",
 };
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased bg-gradient-to-br from-blue-100 via-white to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen`}>{children}</body>
     </html>
   );
 }
